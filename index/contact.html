@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | BHS Finance Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f1f5f9;
+        }
+
+        header {
+            background-color: #0f172a;
+            color: white;
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(59, 130, 246, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600&q=80') center/cover;
+            color: white;
+            padding: 10rem 5% 11rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #ffffff;
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .content-section {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 8%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border: 3px solid #cbd5e1;
+            border-radius: 25px;
+            padding: 3.5rem;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 45px rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        .contact-card p {
+            color: #475569;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: #dbeafe;
+            border-radius: 30px;
+            border: 2px solid #3b82f6;
+            transition: all 0.3s;
+        }
+
+        .contact-card a:hover {
+            background: #3b82f6;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .meeting-info {
+            background: #ffffff;
+            border: 3px solid #3b82f6;
+            border-radius: 25px;
+            padding: 4rem;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .meeting-info h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .meeting-info h2 span {
+            color: #3b82f6;
+        }
+
+        .meeting-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .detail-item {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid #cbd5e1;
+            transition: all 0.3s;
+        }
+
+        .detail-item:hover {
+            background: #dbeafe;
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+        }
+
+        .detail-item h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.8rem;
+            color: #3b82f6;
+            font-weight: 700;
+        }
+
+        .detail-item p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3.5rem 5%;
+            margin-top: 6rem;
+            border-top: 3px solid #3b82f6;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .meeting-details {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">BHS Finance Club</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Get In Touch</h1>
+        <p>Questions about membership, events, or partnerships? We'd love to hear from you.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email Us</h3>
+                <p>Send us an email for general inquiries, membership questions, or partnership opportunities.</p>
+                <a href="mailto:TnFinanceClub@example.com">TnFinanceClub@example.com</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <h3>Join Our Group-Me </Group-Me></h3>
+                <p>Connect with other members, get real-time updates, and participate in discussions.           s  </p>
+                <a href="#" target="_blank">Join Server</a>
+            </div>
+        </div>
+
+        <div class="meeting-info">
+            <h2>Club <span>Meetings</span></h2>
+            <p style="color: #475569; font-size: 1.2rem; margin-bottom: 1rem;">Join us for our regular meetings to learn, network, and grow.</p>
+            
+            <div class="meeting-details">
+                <div class="detail-item">
+                    <h4>Frequency</h4>
+                    <p>Every Other Week</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Time</h4>
+                    <p>TBD</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Location</h4>
+                    <p>TBD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BHS Finance Club. Built by students, for students.</p>
+        <p style="margin-top: 0.5rem;">Questions? Email us at <strong>bhsfinanceclub@example.com</strong></p>
+    </footer>
+</body>
+</html>

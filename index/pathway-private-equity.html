@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Equity Resources | BHS Finance Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f1f5f9;
+        }
+
+        header {
+            background-color: #0f172a;
+            color: white;
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .breadcrumb {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 5%;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #64748b;
+            margin: 0 0.5rem;
+        }
+
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(59, 130, 246, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1600&q=80') center/cover;
+            color: white;
+            padding: 7rem 5% 8rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #ffffff;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 5%;
+        }
+
+        .intro-box {
+            background: #ffffff;
+            border: 3px solid #3b82f6;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .intro-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            font-weight: 900;
+        }
+
+        .intro-box p {
+            font-size: 1.15rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            color: #0f172a;
+            font-weight: 900;
+        }
+
+        .section-title span {
+            color: #3b82f6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .skill-card {
+            background: #ffffff;
+            border: 3px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        .skill-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .resources-section {
+            margin-bottom: 4rem;
+        }
+
+        .resource-category {
+            margin-bottom: 3rem;
+        }
+
+        .resource-category h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+            font-weight: 800;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        .resource-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .resource-item {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid #cbd5e1;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .resource-item:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            transform: translateX(5px);
+        }
+
+        .resource-info {
+            flex: 1;
+        }
+
+        .resource-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .resource-info p {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .resource-link {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 0.9rem 2.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .resource-link:hover {
+            background: #2563eb;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .instruction-box {
+            background: #dbeafe;
+            border: 3px solid #3b82f6;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .instruction-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+            font-weight: 800;
+        }
+
+        .instruction-box p {
+            font-size: 1.1rem;
+            color: #1e40af;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .instruction-box code {
+            background: #bfdbfe;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            color: #1e3a8a;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3.5rem 5%;
+            margin-top: 6rem;
+            border-top: 3px solid #3b82f6;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resource-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">BHS Finance Club</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="learning.html">Self-Learning Hub</a>
+        <span>›</span>
+        Private Equity
+    </div>
+
+    <section class="hero">
+        <h1>Private Equity</h1>
+        <p>Master leveraged buyouts, portfolio management, and value creation</p>
+    </section>
+
+    <section class="content-section">
+        <div class="intro-box">
+            <h2>What is Private Equity?</h2>
+            <p>Private equity professionals invest in and manage private companies, using leverage to maximize returns. They focus on operational improvements, strategic growth, and value creation over a 3-7 year investment horizon before exiting through a sale or IPO.</p>
+            <p>PE careers typically require 2-3 years of investment banking experience. The work involves deal sourcing, financial modeling (especially LBO models), due diligence, portfolio company management, and ultimately driving returns for limited partners (LPs) who invest in PE funds.</p>
+        </div>
+
+        <h2 class="section-title">Core <span>Skills</span></h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>LBO Modeling</h3>
+                <p>Build leveraged buyout models analyzing purchase price, debt structure, operational improvements, and projected returns (IRR and cash-on-cash multiples).</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Due Diligence</h3>
+                <p>Assess company operations, financials, market position, competitive dynamics, and identify red flags before making investment decisions.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Portfolio Management</h3>
+                <p>Monitor and improve portfolio company performance through board involvement, strategic initiatives, and operational enhancements.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Deal Sourcing</h3>
+                <p>Identify and evaluate investment opportunities through proprietary channels, investment banks, brokers, and industry relationships.</p>
+            </div>
+        </div>
+
+        <div class="instruction-box">
+            <h3>📝 How to Add Resources</h3>
+            <p>To add a new resource: Find the <code>&lt;div class="resource-list"&gt;</code> section below, copy a <code>&lt;div class="resource-item"&gt;</code> block, and update the title, description, and link.</p>
+            <p>Make sure to update the <code>href="YOUR_LINK_HERE"</code> with the actual URL to the resource.</p>
+        </div>
+
+        <div class="resources-section">
+            <h2 class="section-title">Learning <span>Resources</span></h2>
+
+            <div class="resource-category">
+                <h3>📚 Foundational Courses</h3>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <h4>Private Equity Fundamentals</h4>
+                            <p>Comprehensive introduction to PE investing, fund structures, deal types, and the investment lifecycle from sourcing to exit.</p>
+                        </div>
+                        <a href="#" target="_blank" class="resource-link">Access →</a>
+                    </div>
+
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <h4>LBO Modeling Masterclass</h4>
+                            <p>Step-by-step guide to building leveraged buyout models including debt schedules, returns analysis, and sensitivity tables.</p>
+                        </div>
+                        <a href="#" target="_blank" class="resource-link">Access →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <h3>📊 Deal Analysis</h3>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <h4>PE Case Studies</h4>
+                            <p>Real-world private equity transactions with detailed analysis of deal rationale, value creation strategies, and exit outcomes.</p>
+                        </div>
+                        <a href="#" target="_blank" class="resource-link">Access →</a>
+                    </div>
+
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <h4>Due Diligence Framework</h4>
+                            <p>Learn how to conduct comprehensive due diligence covering financial, operational, legal, and commercial factors.</p>
+                        </div>
+                        <a href="#" target="_blank" class="resource-link">Access →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <h3>🎯 Value Creation</h3>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <h4>Operational Improvement Strategies</h4>
+                            <p>Tactics for driving EBITDA growth through revenue expansion, margin improvement, and operational efficiency.</p>
+                        </div>
+                        <a href="#" target="_blank" class="resource-link">Access →</a>
+                    </div>
+
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <h4>Portfolio Company Management</h4>
+                            <p>Best practices for working with management teams, board governance, and implementing strategic initiatives.</p>
+                        </div>
+                        <a href="#" target="_blank" class="resource-link">Access →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <h3>📰 Industry News & Insights</h3>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <div class="resource-info">
+                            <h4>PitchBook Data</h4>
+                            <p>Market data, deal flow, fund performance, and industry trends in private equity and venture capital.</p>
+                        </div>
+                        <a href="#" target="_blank" class="resource-link">Access →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BHS Finance Club. Built by students, for students.</p>
+        <p style="margin-top: 0.5rem;">Questions? Email us at <strong>bhsfinanceclub@example.com</strong></p>
+    </footer>
+</body>
+</html>

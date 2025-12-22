@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BHS Finance Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f1f5f9;
+        }
+
+        header {
+            background-color: #0f172a;
+            color: white;
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(59, 130, 246, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80') center/cover;
+            color: white;
+            padding: 12rem 5% 14rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -3px;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: #ffffff;
+            max-width: 850px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 1.3rem 3.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.6);
+            background: #2563eb;
+        }
+
+        .intro-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 5% 5rem 5%;
+            text-align: center;
+            background-color: #f1f5f9;
+        }
+
+        .intro-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .intro-section h2 span {
+            color: #3b82f6;
+        }
+
+        .intro-section p {
+            font-size: 1.4rem;
+            color: #475569;
+            max-width: 950px;
+            margin: 0 auto 1rem auto;
+            line-height: 1.8;
+        }
+
+        .main-nav-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 5% 10rem 5%;
+            background-color: #f1f5f9;
+        }
+
+        .main-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .nav-card {
+            position: relative;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 5rem 3.5rem;
+            text-decoration: none;
+            color: #000000;
+            overflow: hidden;
+            border: 3px solid #cbd5e1;
+            transition: all 0.4s;
+            cursor: pointer;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .nav-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-card-icon {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 2.5rem auto;
+            background: #dbeafe;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #3b82f6;
+            transition: all 0.4s;
+        }
+
+        .nav-card:hover .nav-card-icon {
+            background: #3b82f6;
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .nav-card-icon svg {
+            width: 55px;
+            height: 55px;
+            fill: #3b82f6;
+            transition: all 0.4s;
+        }
+
+        .nav-card:hover .nav-card-icon svg {
+            fill: #ffffff;
+        }
+
+        .nav-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            font-weight: 900;
+            color: #0f172a;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .nav-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 4px;
+            background: #3b82f6;
+            transition: width 0.4s ease;
+        }
+
+        .nav-card:hover h3::after {
+            width: 80%;
+        }
+
+        .nav-card p {
+            font-size: 1.25rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .nav-card-arrow-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .nav-card-arrow {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #3b82f6;
+            color: #ffffff;
+            font-size: 2rem;
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .nav-card:hover .nav-card-arrow {
+            background: #2563eb;
+            transform: translateX(10px) scale(1.15);
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3.5rem 5%;
+            border-top: 3px solid #3b82f6;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .main-nav-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">BHS Finance Club</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Master <span>Finance</span> in High School</h1>
+            <p>The premier finance education platform for Williamson County students. Learn markets, build networks, and gain real industry exposure.</p>
+            <a href="#explore" class="hero-cta">Explore Opportunities</a>
+        </div>
+    </section>
+
+    <section class="intro-section" id="explore">
+        <h2>What We <span>Offer</span></h2>
+        <p>We're building the most credible, structured finance education experience for high school students. No fluff. No shortcuts. Real skills, real opportunities.</p>
+        <p>Choose your path below to get started.</p>
+    </section>
+
+    <section class="main-nav-section">
+        <div class="main-nav-grid">
+            
+            <a href="learning.html" class="nav-card">
+                <div class="nav-card-content">
+                    <div class="nav-card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L4 7v10c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7l-8-5zm0 18.5c-3.25-1.03-6-5.17-6-9.5V8.3l6-3.6 6 3.6V11c0 4.33-2.75 8.47-6 9.5z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Self-Learning Hub</h3>
+                    <p>Explore 6 finance career paths with curated resources, skills needed, and learning roadmaps.</p>
+                    <div class="nav-card-arrow-wrapper">
+                        <div class="nav-card-arrow">→</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="events.html" class="nav-card">
+                <div class="nav-card-content">
+                    <div class="nav-card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
+                            <path d="M7 12h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+                        </svg>
+                    </div>
+                    <h3>Events & Opportunities</h3>
+                    <p>Weekly meetings, guest speakers, competitions, and exclusive internship programs.</p>
+                    <div class="nav-card-arrow-wrapper">
+                        <div class="nav-card-arrow">→</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="industry.html" class="nav-card">
+                <div class="nav-card-content">
+                    <div class="nav-card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Industry Connections</h3>
+                    <p>Connect with finance professionals, find mentors, and gain career opportunities.</p>
+                    <div class="nav-card-arrow-wrapper">
+                        <div class="nav-card-arrow">→</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BHS Finance Club. Built by students, for students.</p>
+        <p style="margin-top: 0.5rem;">Questions? Email us at <strong>bhsfinanceclub@example.com</strong></p>
+    </footer>
+</body>
+</html>

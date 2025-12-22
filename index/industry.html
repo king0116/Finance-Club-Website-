@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Connections | BHS Finance Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f1f5f9;
+        }
+
+        header {
+            background-color: #0f172a;
+            color: white;
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(59, 130, 246, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80') center/cover;
+            color: white;
+            padding: 9rem 5% 10rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .content-section {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 5%;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            font-weight: 900;
+        }
+
+        .section-header h2 span {
+            color: #3b82f6;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .connection-card {
+            background: #ffffff;
+            border: 3px solid #cbd5e1;
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .connection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+            border-color: #3b82f6;
+        }
+
+        .connection-icon {
+            width: 70px;
+            height: 70px;
+            background: #dbeafe;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.8rem;
+            border: 2px solid #3b82f6;
+            transition: all 0.3s;
+        }
+
+        .connection-card:hover .connection-icon {
+            background: #3b82f6;
+            transform: scale(1.1);
+        }
+
+        .connection-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: #3b82f6;
+            transition: all 0.3s;
+        }
+
+        .connection-card:hover .connection-icon svg {
+            fill: #ffffff;
+        }
+
+        .connection-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        .connection-card p {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .connection-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .connection-card li {
+            padding: 0.6rem 0;
+            color: #475569;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .connection-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .partners-section {
+            background: #ffffff;
+            border: 3px solid #3b82f6;
+            border-radius: 20px;
+            padding: 3.5rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .partners-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .partners-section > p {
+            text-align: center;
+            color: #475569;
+            margin-bottom: 3rem;
+            font-size: 1.15rem;
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .partner-card {
+            background: #f8fafc;
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid #cbd5e1;
+        }
+
+        .partner-card:hover {
+            background: #dbeafe;
+            border-color: #3b82f6;
+            transform: translateY(-4px);
+        }
+
+        .partner-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .partner-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .cta-box {
+            background: #ffffff;
+            border: 3px solid #3b82f6;
+            border-radius: 20px;
+            padding: 3.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .cta-box h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            font-weight: 900;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 1.1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .stories-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .story-card {
+            background: #ffffff;
+            border: 3px solid #cbd5e1;
+            border-radius: 20px;
+            padding: 3rem;
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+
+        .story-card blockquote {
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 1.8rem;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .author-avatar {
+            width: 55px;
+            height: 55px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #3b82f6;
+            font-size: 1.3rem;
+            border: 2px solid #3b82f6;
+        }
+
+        .author-info h4 {
+            color: #0f172a;
+            font-size: 1.15rem;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+        }
+
+        .author-info p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .instruction-box {
+            background: #dbeafe;
+            border: 3px solid #3b82f6;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .instruction-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+            font-weight: 800;
+        }
+
+        .instruction-box p {
+            font-size: 1.1rem;
+            color: #1e40af;
+            line-height: 1.8;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3.5rem 5%;
+            margin-top: 6rem;
+            border-top: 3px solid #3b82f6;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .connection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">BHS Finance Club</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Industry Connections</h1>
+        <p>Connect with professionals, secure mentorship, and access career opportunities.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="section-header">
+            <h2>How We <span>Connect You</span></h2>
+            <p>We've built relationships with professionals across finance to give members unprecedented access to the industry.</p>
+        </div>
+
+        <div class="connection-grid">
+            <div class="connection-card">
+                <div class="connection-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                </div>
+                <h3>Mentorship Program</h3>
+                <p>Get paired with finance professionals for 1-on-1 guidance on careers, education, and skill development.</p>
+                <ul>
+                    <li>Quarterly mentorship sessions</li>
+                    <li>Career path guidance</li>
+                    <li>Resume and interview prep</li>
+                    <li>Industry insights</li>
+                </ul>
+            </div>
+
+            <div class="connection-card">
+                <div class="connection-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 12 7.4l3.38 4.6L17 10.83 14.92 8H20v6z"/>
+                    </svg>
+                </div>
+                <h3>Speaker Series</h3>
+                <p>Hear directly from professionals working in investment banking, private equity, venture capital, and more.</p>
+                <ul>
+                    <li>Monthly guest speakers</li>
+                    <li>Q&A sessions</li>
+                    <li>Career day panels</li>
+                    <li>Networking opportunities</li>
+                </ul>
+            </div>
+
+            <div class="connection-card">
+                <div class="connection-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 7h-4V5l-2-2h-4L8 5v2H4c-1.1 0-2 .9-2 2v5c0 .75.4 1.38 1 1.73V19c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2v-3.28c.59-.35 1-.99 1-1.72V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5zM4 9h16v5h-5v-3H9v3H4V9zm9 6h-2v-2h2v2zm6 4H5v-3h4v1h6v-1h4v3z"/>
+                    </svg>
+                </div>
+                <h3>Internship Pipeline</h3>
+                <p>Access internship opportunities through our partner network, exclusively available to club members.</p>
+                <ul>
+                    <li>Summer internships</li>
+                    <li>Job shadowing programs</li>
+                    <li>Virtual work experience</li>
+                    <li>Application support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="instruction-box">
+            <h3>📝 How to Add Partners</h3>
+            <p>To add partner companies: Find the Partner Organizations section, copy a partner card block, and update the company name and industry type.</p>
+        </div>
+
+        <div class="partners-section">
+            <h3>Partner Organizations</h3>
+            <p>We've established relationships with leading firms to create opportunities for our members.</p>
+            
+            <div class="partner-grid">
+                <!-- ADD PARTNERS HERE - Copy this block for each partner -->
+                <div class="partner-card">
+                    <h4>Partner Firm</h4>
+                    <p>Investment Banking</p>
+                </div>
+
+                <div class="partner-card">
+                    <h4>Partner Firm</h4>
+                    <p>Private Equity</p>
+                </div>
+
+                <div class="partner-card">
+                    <h4>Partner Firm</h4>
+                    <p>Venture Capital</p>
+                </div>
+
+                <div class="partner-card">
+                    <h4>Partner Firm</h4>
+                    <p>Asset Management</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h3>Ready to Connect?</h3>
+            <p>Join the club to get matched with a mentor, attend exclusive events, and access internship opportunities that will set you apart.</p>
+            <a href="index.html" class="cta-button">Join the Club</a>
+        </div>
+
+        <div class="section-header">
+            <h2>Member <span>Success Stories</span></h2>
+            <p>Hear from students who leveraged club connections to advance their finance careers.</p>
+        </div>
+
+        <div class="stories-grid">
+            <!-- ADD TESTIMONIALS HERE - Copy this block for each story -->
+            <div class="story-card">
+                <blockquote>"Through the mentorship program, I connected with a portfolio manager who helped me secure a summer internship at a local investment firm. The experience was invaluable."</blockquote>
+                <div class="story-author">
+                    <div class="author-avatar">JS</div>
+                    <div class="author-info">
+                        <h4>Student Name</h4>
+                        <p>BHS Class of 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <blockquote>"The speaker series gave me direct access to professionals I never would have met otherwise. One conversation changed my entire perspective on career paths in finance."</blockquote>
+                <div class="story-author">
+                    <div class="author-avatar">AR</div>
+                    <div class="author-info">
+                        <h4>Student Name</h4>
+                        <p>BHS Class of 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BHS Finance Club. Built by students, for students.</p>
+        <p style="margin-top: 0.5rem;">Questions? Email us at <strong>bhsfinanceclub@example.com</strong></p>
+    </footer>
+</body>
+</html>

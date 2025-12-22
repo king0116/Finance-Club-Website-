@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Learning Hub | BHS Finance Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f1f5f9;
+        }
+
+        header {
+            background-color: #0f172a;
+            color: white;
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(59, 130, 246, 0.5) 100%),
+                url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=80') center/cover;
+            color: white;
+            padding: 9rem 5% 10rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .content-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 5%;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-intro h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .section-intro h2 span {
+            color: #3b82f6;
+        }
+
+        .section-intro p {
+            font-size: 1.3rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .pathway-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 8rem;
+        }
+
+        .pathway-card {
+            background: #ffffff;
+            border: 3px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.4s;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000000;
+            display: block;
+        }
+
+        .pathway-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
+        }
+
+        .pathway-number {
+            width: 60px;
+            height: 60px;
+            background: #dbeafe;
+            border: 3px solid #3b82f6;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #3b82f6;
+            transition: all 0.4s;
+        }
+
+        .pathway-card:hover .pathway-number {
+            background: #3b82f6;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .pathway-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .pathway-card p {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .universal-resources {
+            background: #ffffff;
+            border: 3px solid #10b981;
+            border-radius: 24px;
+            padding: 4rem;
+            margin-top: 6rem;
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .universal-resources h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .universal-resources h2 span {
+            color: #10b981;
+        }
+
+        .universal-resources > p {
+            text-align: center;
+            color: #475569;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .universal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .universal-card {
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .universal-card:hover {
+            border-color: #10b981;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .universal-icon {
+            width: 60px;
+            height: 60px;
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .universal-card:hover .universal-icon {
+            background: #10b981;
+            transform: scale(1.1);
+        }
+
+        .universal-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        .universal-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3.5rem 5%;
+            border-top: 3px solid #3b82f6;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .pathway-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .universal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pathway-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">BHS Finance Club</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Self-Learning Hub</h1>
+        <p>Explore 6 finance career paths with curated resources and learning roadmaps.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="section-intro">
+            <h2>Choose Your <span>Career Path</span></h2>
+            <p>Click on any pathway below to explore what skills you need, what the role entails, and get access to curated learning resources.</p>
+        </div>
+
+        <div class="pathway-grid">
+            <a href="pathway-investment-banking.html" class="pathway-card">
+                <div class="pathway-number">01</div>
+                <h3>Investment Banking</h3>
+                <p>Learn M&A, valuation, and financial modeling used by elite banks.</p>
+            </a>
+
+            <a href="pathway-private-equity.html" class="pathway-card">
+                <div class="pathway-number">02</div>
+                <h3>Private Equity</h3>
+                <p>Master leveraged buyouts, portfolio management, and value creation.</p>
+            </a>
+
+            <a href="pathway-accounting.html" class="pathway-card">
+                <div class="pathway-number">03</div>
+                <h3>Accounting</h3>
+                <p>Understand financial reporting, auditing, and forensic accounting.</p>
+            </a>
+
+            <a href="pathway-consulting.html" class="pathway-card">
+                <div class="pathway-number">04</div>
+                <h3>Consulting / Corporate Finance</h3>
+                <p>Learn strategic problem-solving, FP&A, and business analysis.</p>
+            </a>
+
+            <a href="pathway-quant-finance.html" class="pathway-card">
+                <div class="pathway-number">05</div>
+                <h3>Quantitative Finance</h3>
+                <p>Explore algorithmic trading, risk modeling, and derivatives pricing.</p>
+            </a>
+
+            <a href="pathway-personal-finance.html" class="pathway-card">
+                <div class="pathway-number">06</div>
+                <h3>Personal Finance</h3>
+                <p>Master wealth management, financial planning, and investment strategies.</p>
+            </a>
+        </div>
+
+        <div class="universal-resources">
+            <h2>Essential <span>Finance Skills</span></h2>
+            <p>Master these foundational resources before diving deep into any career path. These are the building blocks every finance professional needs.</p>
+
+            <div class="universal-grid">
+                <a href="https://www.excel-easy.com/" target="_blank" class="universal-card">
+                    <div class="universal-icon">📊</div>
+                    <h3>Excel Mastery Course</h3>
+                    <p>Learn Excel from basics to advanced financial modeling. Master formulas, pivot tables, macros, and data analysis essential for every finance role.</p>
+                </a>
+
+                <a href="https://www.investopedia.com/financial-term-dictionary-4769738" target="_blank" class="universal-card">
+                    <div class="universal-icon">📖</div>
+                    <h3>Financial Terms Dictionary</h3>
+                    <p>Comprehensive glossary of finance terminology. Look up definitions for accounting, valuation, markets, and investment concepts.</p>
+                </a>
+
+                <a href="https://www.khanacademy.org/economics-finance-domain/core-finance" target="_blank" class="universal-card">
+                    <div class="universal-icon">🎓</div>
+                    <h3>Finance Fundamentals</h3>
+                    <p>Free Khan Academy course covering interest, present value, stocks, bonds, and fundamental finance concepts everyone should know.</p>
+                </a>
+
+                <a href="https://www.coursera.org/learn/finance-accounting" target="_blank" class="universal-card">
+                    <div class="universal-icon">💼</div>
+                    <h3>Accounting Basics</h3>
+                    <p>Understand financial statements, debits & credits, and how to read a balance sheet, income statement, and cash flow statement.</p>
+                </a>
+
+                <a href="https://www.wallstreetoasis.com/" target="_blank" class="universal-card">
+                    <div class="universal-icon">🏦</div>
+                    <h3>Wall Street Oasis</h3>
+                    <p>Community forum with career guides, interview prep, and insights from finance professionals across all sectors.</p>
+                </a>
+
+                <a href="https://www.cfainstitute.org/en/programs/cfa/charter" target="_blank" class="universal-card">
+                    <div class="universal-icon">📈</div>
+                    <h3>CFA Program Overview</h3>
+                    <p>Learn about the Chartered Financial Analyst designation, the gold standard credential for investment management and research careers.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BHS Finance Club. Built by students, for students.</p>
+        <p style="margin-top: 0.5rem;">Questions? Email us at <strong>bhsfinanceclub@example.com</strong></p>
+    </footer>
+</body>
+</html>

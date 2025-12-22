@@ -1,0 +1,100 @@
+:root{
+    --bg:#2d3748;
+    --panel:#ffffff;
+    --muted:#2a64a3;
+    --accent:#2d8652;
+    --surface:#1a202c;
+    --glass: rgba(248, 195, 195, 0.04);
+    --card-shadow: 0 10px 30px rgba(13,24,35,0.45);
+    --radius: 12px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+    line-height:1.6;color:#e8eaed;background-color:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header + Nav */
+header{background:linear-gradient(180deg, rgba(26,32,44,0.98), var(--surface));color:#fff;padding:0.55rem 4%;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(74,85,104,0.14);backdrop-filter: blur(6px)}
+nav{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto}
+.logo{font-size:1.05rem;font-weight:800;color:var(--accent);text-decoration:none;letter-spacing:0.2px}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:#e8eaed;text-decoration:none;font-weight:600;transition:color .22s;padding:0.35rem 0.25rem;border-radius:6px}
+.nav-links a:hover{color:var(--accent);background:var(--glass)}
+.nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:1.5rem;padding:0.25rem;cursor:pointer}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--surface) 0%,var(--bg) 100%);padding:3.4rem 4% 4.2rem 4%;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(circle at 20% 32%, rgba(91,155,213,0.12) 0%, transparent 30%),
+    radial-gradient(circle at 80% 72%, rgba(74,85,104,0.12) 0%, transparent 25%);
+pointer-events:none;mix-blend-mode:overlay}
+.hero .hero-inner{position:relative;z-index:2;max-width:940px;margin:0 auto}
+.hero h1{font-size:2.4rem;margin-bottom:0.6rem;font-weight:800}
+.hero p{font-size:1.08rem}
+.hero .hero-cta{margin-top:1.25rem;display:inline-block}
+.cta-button{background:linear-gradient(180deg,var(--accent),#4a8fc6);color:#052133;padding:0.8rem 1.1rem;border-radius:10px;font-weight:800;border:0;box-shadow:0 10px 30px rgba(91,155,213,0.12);text-decoration:none}
+.cta-button:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(74,137,187,0.16)}
+.hero p{color:var(--muted);font-size:1.15rem;max-width:900px;margin:0 auto}
+
+/* Content layout */
+.content-section{max-width:1200px;margin:0 auto;padding:3rem 5%}
+.section-intro{text-align:center;margin-bottom:2.5rem}
+.section-intro h2{font-size:2rem;color:#fff;margin-bottom:0.75rem}
+.section-intro p{color:var(--muted);max-width:700px;margin:0 auto}
+
+.pathway-grid,.connection-grid,.main-nav-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.pathway-card,.connection-card,.nav-card,.partner-card,.resource-section,.story-card,.opportunity-card{background:linear-gradient(135deg,var(--panel) 0%,#334155 100%);border-radius:var(--radius);padding:1.5rem;border:1px solid rgba(100,116,139,0.08);color:var(--muted);transition:transform .35s ease,box-shadow .35s ease,border-color .3s}
+.pathway-card h3,.connection-card h3,.nav-card h3{color:#fff;font-weight:700;margin-bottom:0.75rem}
+.nav-card{min-height:260px;display:flex;flex-direction:column;justify-content:center;padding:2rem;position:relative;overflow:hidden}
+.nav-card::before{content:'';position:absolute;inset:0;border-radius:12px;opacity:0;transition:opacity .35s}
+.nav-card:hover{transform:translateY(-6px);box-shadow:var(--card-shadow);border-color:var(--accent)}
+.nav-card:hover::before{opacity:1}
+.nav-card-arrow{color:var(--accent);font-weight:700;text-align:center}
+
+.resource-section{padding:2rem}
+.resource-item{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:8px;border-left:4px solid var(--accent);transition:transform .28s,background .28s,box-shadow .28s}
+.resource-item:hover{transform:translateX(6px);box-shadow:0 10px 30px rgba(13,24,35,0.5)}
+.resource-item a{color:var(--accent);text-decoration:none}
+
+/* Contact form */
+.contact-section{max-width:900px;margin:0 auto;padding:2rem;background:linear-gradient(180deg, rgba(51,65,85,0.6), rgba(45,55,72,0.5));border-radius:12px;border:1px solid rgba(100,116,139,0.06)}
+.contact-form{display:grid;gap:0.75rem}
+.contact-form label{color:var(--muted);font-size:0.9rem}
+.contact-form input,.contact-form textarea{padding:0.75rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));color:#fff}
+.contact-form button{background:linear-gradient(180deg,var(--accent),#4a8fc6);color:#052133;border:0;padding:0.8rem 1rem;border-radius:8px;font-weight:800;cursor:pointer}
+.form-success{display:none;color:#b7f0ff;margin-top:0.5rem}
+
+/* small utility animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes float{from{transform:translateY(0)}50%{transform:translateY(-6px)}to{transform:translateY(0)}}
+.animate-fade{animation:fadeUp .6s ease both}
+.float{animation:float 4s ease-in-out infinite}
+
+/* icon/card tweaks */
+.nav-card-icon{width:72px;height:72px;margin:0 auto 1rem auto;background:rgba(91,155,213,0.08);border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(91,155,213,0.12);transition:transform .28s,background .28s,border-color .28s}
+.nav-card:hover .nav-card-icon{transform:scale(1.08);background:rgba(91,155,213,0.12);border-color:var(--accent)}
+.nav-card-icon svg{width:36px;height:36px;fill:var(--accent);transition:fill .25s}
+.nav-card:hover .nav-card-icon svg{fill:#7db3e8}
+
+/* smooth scroll for anchor links */
+html{scroll-behavior:smooth}
+
+
+/* Footer */
+footer{background:var(--surface);color:var(--muted);text-align:center;padding:2.5rem 5%;border-top:1px solid #4a5568}
+
+/* Responsive nav */
+@media (max-width:900px){
+    .nav-toggle{display:block}
+    .nav-links{position:absolute;right:5%;top:64px;flex-direction:column;background:var(--surface);padding:1rem;border-radius:8px;display:none;min-width:180px}
+    .nav-links.open{display:flex}
+}
+
+@media (max-width:768px){
+    .hero h1{font-size:2.2rem}
+    .pathway-grid{grid-template-columns:1fr}
+}
